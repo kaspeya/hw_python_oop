@@ -69,8 +69,9 @@ class Running(Training):
         """Получить количество затраченных калорий после бега"""
         coeff_calorie_1 = 18
         coeff_calorie_2 = 20
-        calories = (coeff_calorie_1 * self.get_mean_speed() - coeff_calorie_2) \
-             * self.weight / self.M_IN_KM * (self.duration * self.MINS_IN_HOUR)
+        calories = (coeff_calorie_1 * self.get_mean_speed() \
+            - coeff_calorie_2) * self.weight / self.M_IN_KM \
+            * (self.duration * self.MINS_IN_HOUR)
         return calories
 
 
@@ -81,7 +82,7 @@ class SportsWalking(Training):
                  duration: float,
                  weight: float,
                  height: float
-                ) -> None:
+                 ) -> None:
         super().__init__(action, duration, weight)
         self.height = height
 
@@ -90,8 +91,8 @@ class SportsWalking(Training):
         coeff_calorie_1 = 0.035
         coeff_calorie_2 = 0.029
 
-        calories = (coeff_calorie_1 * self.weight \
-                + (self.get_mean_speed()**2 // self.height) \
+        calories = (coeff_calorie_1 * self.weight
+                + (self.get_mean_speed()**2 // self.height)
                 * coeff_calorie_2 * self.weight) \
             * (self.duration * self.MINS_IN_HOUR)
         return calories
@@ -107,7 +108,7 @@ class Swimming(Training):
                  weight: float,
                  length_pool: float,
                  count_pool: int
-                ) -> None:
+                 ) -> None:
         super().__init__(action, duration, weight)
         self.length_pool = length_pool
         self.count_pool = count_pool
