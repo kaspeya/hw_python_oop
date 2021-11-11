@@ -69,8 +69,8 @@ class Running(Training):
         """Получить количество затраченных калорий после бега"""
         coeff_calorie_1 = 18
         coeff_calorie_2 = 20
-        calories = (coeff_calorie_1 * self.get_mean_speed() \
-            - coeff_calorie_2) * self.weight / self.M_IN_KM \
+        calories = (coeff_calorie_1 * self.get_mean_speed()
+                    - coeff_calorie_2) * self.weight / self.M_IN_KM \
             * (self.duration * self.MINS_IN_HOUR)
         return calories
 
@@ -92,8 +92,8 @@ class SportsWalking(Training):
         coeff_calorie_2 = 0.029
 
         calories = (coeff_calorie_1 * self.weight
-                + (self.get_mean_speed()**2 // self.height)
-                * coeff_calorie_2 * self.weight) \
+                    + (self.get_mean_speed()**2 // self.height)
+                    * coeff_calorie_2 * self.weight) \
             * (self.duration * self.MINS_IN_HOUR)
         return calories
 
@@ -126,6 +126,7 @@ class Swimming(Training):
         calories = (self.get_mean_speed() + coeff_calorie_1) \
             * coeff_calorie_2 * self.weight
         return calories
+
 
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
