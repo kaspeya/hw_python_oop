@@ -15,12 +15,11 @@ class InfoMessage:
 
     def get_message(self) -> str:
         """Возвращает строку с отчётом."""
-        str_message = (f'Тип тренировки: {self.training_type}; '
-                       f'Длительность: {self.duration:.3f} ч.; '
-                       f'Дистанция: {self.distance:.3f} км; '
-                       f'Ср. скорость: {self.speed:.3f} км/ч; '
-                       f'Потрачено ккал: {self.calories:.3f}.')
-        return str_message
+        return (f'Тип тренировки: {self.training_type}; '
+                f'Длительность: {self.duration:.3f} ч.; '
+                f'Дистанция: {self.distance:.3f} км; '
+                f'Ср. скорость: {self.speed:.3f} км/ч; '
+                f'Потрачено ккал: {self.calories:.3f}.')
 
 
 class Training:
@@ -137,7 +136,7 @@ def read_package(workout_type: str, data: list) -> Training:
         'WLK': SportsWalking
     }
     if workout_type not in workout_type_dict:
-        raise ValueError("Этот тип активности не поддерживается.")
+        raise ValueError(f'Тип активности {workout_type} не поддерживается.')
     return workout_type_dict[workout_type](*data)
 
 
